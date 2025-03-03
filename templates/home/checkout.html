@@ -1,0 +1,242 @@
+{% extends "base_home.html" %}
+{% load static %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <!--Navigation section-->
+    <div class="container">
+        <nav class="biolife-nav">
+            <ul>
+                <li class="nav-item"><a href="{% url 'home' %}" class="permal-link">Home</a></li>
+                <li class="nav-item"><span class="current-page">ShoppingCart</span></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="page-contain checkout">
+
+        <!-- Main content -->
+        <div id="main-content" class="main-content">
+            <div class="container sm-margin-top-37px">
+                <div class="row">
+                    <div class="col-lg-7 col-md-7 col-sm-6 col-xs-12" style="background: #f9f9f9; padding: 20px; border-radius: 5px;">
+                        <div class="checkout-progress-wrap">
+                            <ul class="steps" style="list-style-type: none; padding: 0;">
+                                <li class="step 1st" style="margin-bottom: 20px;">
+                                    <div class="checkout-act active">
+                                        <h3 class="title-box" style="font-size: 18px; font-weight: bold; cursor: pointer;" onclick="toggleContent('customerContent')">
+                                            <span class="number">1</span> Customer
+                                        </h3>
+                                        <div class="box-content" id="customerContent" style="display: none; margin-top: 10px;">
+                                            <p class="txt-desc">Checking out as a <a class="pmlink" href="#" style="color: #007bff; text-decoration: none;">Guest?</a> You’ll be able to save your details to create an account with us later.</p>
+                                            <div class="login-on-checkout">
+                                                <form action="#" name="frm-login" method="post">
+                                                    <p class="form-row" style="margin-bottom: 15px;">
+                                                        <label for="input_email" style="display: block; margin-bottom: 5px;">Email Address</label>
+                                                        <input type="email" name="email" id="input_email" value="" placeholder="Your email" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                                                        <button type="submit" name="btn-sbmt" class="btn" style="background-color: #007bff; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px;">Continue As Guest</button>
+                                                    </p>
+                                                    <p class="form-row" style="margin-bottom: 15px;">
+                                                        <input type="checkbox" name="subscribe" id="input_subscribe">
+                                                        <label for="input_subscribe" style="display: inline;">Subscribe to our newsletter</label>
+                                                    </p>
+                                                    <p class="msg" style="margin-top: 10px;">Already have an account? <a href="{% url 'register' %}" class="link-forward" style="color: #007bff; text-decoration: none;">Sign in now</a></p>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="step 2nd" style="margin-bottom: 20px;">
+                                    <div class="checkout-act active">
+                                        <h3 class="title-box" style="font-size: 18px; font-weight: bold; cursor: pointer;" onclick="toggleContent('shippingContent')">
+                                            <span class="number">2</span> Shipping
+                                        </h3>
+                                        <div class="box-content" id="shippingContent" style="display: none; margin-top: 10px;">
+                                            <form action="#" name="frm-shipping" method="post">
+                                                <p class="form-row" style="margin-bottom: 15px;">
+                                                    <label for="input_address" style="display: block; margin-bottom: 5px;">Shipping Address</label>
+                                                    <input type="text" name="address" id="input_address" placeholder="Enter your shipping address" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                                                </p>
+                                                <p class="form-row" style="margin-bottom: 15px;">
+                                                    <label for="input_city" style="display: block; margin-bottom: 5px;">City</label>
+                                                    <input type="text" name="city" id="input_city" placeholder="Enter your city" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                                                </p>
+                                                <p class="form-row" style="margin-bottom: 15px;">
+                                                    <label for="input_postcode" style="display: block; margin-bottom: 5px;">Postal Code</label>
+                                                    <input type="text" name="postcode" id="input_postcode" placeholder="Enter your postal code" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                                                </p>
+                                                <p class="form-row" style="margin-bottom: 15px;">
+                                                    <label for="input_country" style="display: block; margin-bottom: 5px;">Country</label>
+                                                    <select name="country" id="input_country" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                                                        <option value="">Select your country</option>
+                                                        <option value="USA">USA</option>
+                                                        <option value="UK">UK</option>
+                                                        <option value="Nigeria">Nigeria</option>
+                                                        <!-- Add more options as needed -->
+                                                    </select>
+                                                </p>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="step 3rd" style="margin-bottom: 20px;">
+                                    <div class="checkout-act active">
+                                        <h3 class="title-box" style="font-size: 18px; font-weight: bold; cursor: pointer;" onclick="toggleContent('billingContent')">
+                                            <span class="number">3</span> Billing
+                                        </h3>
+                                        <div class="box-content" id="billingContent" style="display: none; margin-top: 10px;">
+                                            <form action="#" name="frm-billing" method="post">
+                                                <p class="form-row" style="margin-bottom: 15px;">
+                                                    <label for="input_billing_address" style="display: block; margin-bottom: 5px;">Billing Address</label>
+                                                    <input type="text" name="billing_address" id="input_billing_address" placeholder="Enter your billing address" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                                                </p>
+                                                <p class="form-row" style="margin-bottom: 15px;">
+                                                    <label for="input_card_number" style="display: block; margin-bottom: 5px;">Card Number</label>
+                                                    <input type="text" name="card_number" id="input_card_number" placeholder="Enter your card number" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                                                </p>
+                                                <p class="form-row" style="margin-bottom: 15px;">
+                                                    <label for="input_expiry_date" style="display: block; margin-bottom: 5px;">Expiry Date</label>
+                                                    <input type="text" name="expiry_date" id="input_expiry_date" placeholder="MM/YY" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                                                </p>
+                                                <p class="form-row" style="margin-bottom: 15px;">
+                                                    <label for="input_cvc" style="display: block; margin-bottom: 5px;">CVC</label>
+                                                    <input type="text" name="cvc" id="input_cvc" placeholder="CVC" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                                                </p>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="step 4th" style="margin-bottom: 20px;">
+                                    <div class="checkout-act active">
+                                        <h3 class="title-box" style="font-size: 18px; font-weight: bold; cursor: pointer;" onclick="toggleContent('paymentContent')">
+                                            <span class="number">4</span> Payment
+                                        </h3>
+                                        <div class="box-content" id="paymentContent" style="display: none; margin-top: 10px;">
+                                            <form action="#" name="frm-payment" method="post">
+                                                <p class="form-row" style="margin-bottom: 15px;">
+                                                    <label for="input_card_type" style="display: block; margin-bottom: 5px;">Card Type</label>
+                                                    <select name="card_type" id="input_card_type" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                                                        <option value="">Select card type</option>
+                                                        <option value="Visa">Visa</option>
+                                                        <option value="MasterCard">MasterCard</option>
+                                                        <option value="American Express">American Express</option>
+                                                        <!-- Add more options as needed -->
+                                                    </select>
+                                                </p>
+                                                <p class="form-row" style="margin-bottom: 15px;">
+                                                    <button type="submit" name="btn-pay" class="btn" style="background-color: #007bff; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">Proceed to Payment</button>
+                                                </p>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!--Order Summary-->
+                    <div class="col-lg-5 col-md-7 col-sm-6 col-xs-12 sm-padding-top-48px sm-margin-bottom-0 xs-margin-bottom-15px">
+                        <div class="order-summary sm-margin-bottom-80px">
+                            <div class="title-block">
+                                <h3 class="title">Order Summary</h3>
+                                <a href="#" class="link-forward">Edit cart</a>
+                            </div>
+                            <div class="cart-list-box short-type">
+                                <span class="number">{{order.get_cart_items}} items</span>
+                                {% for item in items %}
+                                <ul class="cart-list">
+                                    <li class="cart-elem">
+                                        <div class="cart-item">
+                                            <div class="product-thumb">
+                                                <a class="prd-thumb" href="#">
+                                                    <figure><img src="{{ item.product.imageURL}}" width="80" height="80" alt="shop-cart" ></figure>
+                                                </a>
+                                            </div>
+                                            <div class="info">
+                                                <span class="txt-quantity" style="font-size: 12px;">{{item.quantity}}X
+                                                    <a href="#" class="pr-name" style="font-size: 12px;">{{item.product.name}}</a>
+                                                </span>
+                                            </div>
+                                            <div class="price price-contain">
+                                                <ins><span class="price-amount" style="font-size: 12px;"><span class="currencySymbol" >£</span>{{ item.product.price|floatformat:2}}</span></ins>
+                                                
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                {% endfor %}
+                                <ul class="subtotal">
+                                    <li>
+                                        <div class="subtotal-line">
+                                            <b class="stt-name">Total</b>
+                                            <span class="stt-price">£{{order.get_cart_total|floatformat:2}}</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="subtotal-line">
+                                            <b class="stt-name">Shipping</b>
+                                            <span class="stt-price">£0.00</span>
+                                            {% comment %} <span class="stt-price">£20.00</span> {% endcomment %}
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="subtotal-line">
+                                            <b class="stt-name">Tax</b>
+                                            <span class="stt-price">£0.00</span>
+                                        </div>
+                                    </li>
+                                    {% comment %} <li>
+                                        <div class="subtotal-line">
+                                            <a href="#" class="link-forward">Promo/Gift Certificate</a>
+                                        </div>
+                                    </li> {% endcomment %}
+                                    <li>
+                                        <div class="subtotal-line">
+                                            <b class="stt-name">total:</b>
+                                            <span class="stt-price">£{{order.get_cart_total|floatformat:2}}</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleContent(contentId) {
+            var content = document.getElementById(contentId);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+
+
+        // for responsive screen
+
+        function toggleContent(contentId) {
+            var content = document.getElementById(contentId);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+
+        
+    </script>
+{% endblock%}

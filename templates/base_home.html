@@ -1,0 +1,833 @@
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Biolife</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static  "assets/images/favicon.png" %}" />
+    <link rel="stylesheet" href="{% static  "assets/css/bootstrap.min.css" %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static  "assets/css/animate.min.css" %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static  "assets/css/font-awesome.min.css" %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static  "assets/css/nice-select.css" %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static  "assets/css/slick.min.css" %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static  "assets/css/style.css" %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static  "assets/css/main-color.css" %}" rel="stylesheet">
+    
+    <script type="text/javascript">
+        var user = '{{request.user}}'
+    </script>
+</head>
+<body class="biolife-body">
+        <!-- Preloader -->
+    {% comment %} <div id="biof-loading">
+        <div class="biof-loading-center">
+            <div class="biof-loading-center-absolute">
+                <div class="dot dot-one"></div>
+                <div class="dot dot-two"></div>
+                <div class="dot dot-three"></div>
+            </div>
+        </div>
+    </div> {% endcomment %}
+
+    <!-- HEADER -->
+    <header id="header" class="header-area style-01 layout-01">
+        <div class="header-top hidden-xs hidden-sm">
+            <div class="container">
+                <div class="top-bar left">
+                    <ul class="horizontal-menu">
+                        <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>Biolife@gmail.com</a></li>
+                    </ul>
+                    <ul class="social-list circle-layout">
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+                <div class="top-bar right">
+                    <ul class="horizontal-menu">
+                        {% comment %} <li class="horz-menu-item currency">
+                            <select name="currency">
+                                <option value="eur">€ EUR (Euro)</option>
+                                <option value="usd" selected>$ USD (Dollar)</option>
+                                <option value="usd">£ GBP (Pound)</option>
+                                <option value="usd">¥ JPY (Yen)</option>
+                            </select>
+                        </li> {% endcomment %}
+                        <li><a href= "{% url 'register' %}" class="login-link"><i class="biolife-icon icon-login"></i>My Account</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="header-middle hidden-sm hidden-xs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-2 col-md-6 col-xs-6">
+                        <a href="{% url 'home' %}" class="biolife-logo"><img src="{% static "assets/images/logo-biolife-1.png" %}" alt="biolife logo" width="135" height="36"></a>
+                    </div>
+                    <div class="col-lg-9 col-md-10 padding-top-2px">
+                        <div class="header-search-bar layout-01 no-product-cat">
+                            <form action="#" class="form-search" name="desktop-seacrh" method="get">
+                                <input type="text" name="s" class="input-text" value="" placeholder="Search here...">
+                                <button type="submit" class="btn-submit"><i class="biolife-icon icon-search"></i></button>
+                            </form>
+                        </div>
+                        <div class="live-info">
+                            <p class="telephone"><i class="fa fa-phone" aria-hidden="true"></i><b class="phone-number">(+234) 903 896 7463</b></p>
+                            <p class="working-time">Mon-Fri: 8:30am-7:30pm; Sat-Sun: 9:30am-4:30pm</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom biolife-sticky-object">
+            <div class="container md-possition-relative">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 hidden-sm hidden-xs">
+                        <div class="vertical-menu vertical-category-block ">
+                            
+                            <div class="wrap-menu">
+                                <ul class="menu clone-main-menu">
+                                    <li class="menu-item menu-item-has-children has-megamenu">
+                                        <a href="#" class="menu-name" data-title="Fruit & Nut Gifts"><i class="biolife-icon icon-fruits"></i>Fruit & Nut Gifts</a>
+                                        <div class="wrap-megamenu lg-width-900 md-width-640">
+                                            <div class="mega-content">
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-4 col-sm-12 xs-margin-bottom-25 md-margin-bottom-0">
+                                                        <div class="wrap-custom-menu vertical-menu">
+                                                            <h4 class="menu-title">Fresh Fuits</h4>
+                                                            <ul class="menu">
+                                                                <li><a href="#">Fruit & Nut Gifts</a></li>
+                                                                <li><a href="#">Mixed Fruits</a></li>
+                                                                <li><a href="#">Oranges</a></li>
+                                                                <li><a href="#">Bananas & Plantains</a></li>
+                                                                <li><a href="#">Fresh Gala Apples</a></li>
+                                                                <li><a href="#">Berries</a></li>
+                                                                <li><a href="#">Pears</a></li>
+                                                                <li><a href="#">Produce</a></li>
+                                                                <li><a href="#">Snack Foods</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-4 col-sm-12 lg-padding-left-23 xs-margin-bottom-25 md-margin-bottom-0">
+                                                        <div class="wrap-custom-menu vertical-menu">
+                                                            <h4 class="menu-title">Nut Gifts</h4>
+                                                            <ul class="menu">
+                                                                <li><a href="#">Non-Dairy Coffee Creamers</a></li>
+                                                                <li><a href="#">Coffee Creamers</a></li>
+                                                                <li><a href="#">Mayonnaise</a></li>
+                                                                <li><a href="#">Almond Milk</a></li>
+                                                                <li><a href="#">Ghee</a></li>
+                                                                <li><a href="#">Beverages</a></li>
+                                                                <li><a href="#">Ranch Salad Dressings</a></li>
+                                                                <li><a href="#">Hemp Milk</a></li>
+                                                                <li><a href="#">Nuts & Seeds</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-4 col-sm-12 lg-padding-left-50 xs-margin-bottom-25 md-margin-bottom-0">
+                                                        <div class="biolife-products-block max-width-270">
+                                                            <h4 class="menu-title">Bestseller Products</h4>
+                                                            <ul class="products-list default-product-style biolife-carousel nav-none-after-1k2 nav-center" data-slick='{"rows":1,"arrows":true,"dots":false,"infinite":false,"speed":400,"slidesMargin":30,"slidesToShow":1, "responsive":[{"breakpoint":767, "settings":{ "arrows": false}}]}' >
+                                                                <li class="product-item">
+                                                                    <div class="contain-product none-overlay">
+                                                                        <div class="product-thumb">
+                                                                            <a href="#" class="link-to-product">
+                                                                                <img src="{% static "assets/images/products/p-08.jpg" %}" alt="dd" width="270" height="270" class="product-thumnail">
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="info">
+                                                                            <b class="categories">Fresh Fruit</b>
+                                                                            <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
+                                                                            <div class="price">
+                                                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
+                                                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="product-item">
+                                                                    <div class="contain-product none-overlay">
+                                                                        <div class="product-thumb">
+                                                                            <a href="#" class="link-to-product">
+                                                                                <img src="{% static "assets/images/products/p-11.jpg" %}" alt="dd" width="270" height="270" class="product-thumnail">
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="info">
+                                                                            <b class="categories">Fresh Fruit</b>
+                                                                            <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
+                                                                            <div class="price">
+                                                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
+                                                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="product-item">
+                                                                    <div class="contain-product none-overlay">
+                                                                        <div class="product-thumb">
+                                                                            <a href="#" class="link-to-product">
+                                                                                <img src="{% static "assets/images/products/p-15.jpg" %}" alt="dd" width="270" height="270" class="product-thumnail">
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="info">
+                                                                            <b class="categories">Fresh Fruit</b>
+                                                                            <h4 class="product-title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
+                                                                            <div class="price">
+                                                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
+                                                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 md-margin-top-9">
+                                                        <div class="biolife-brand" >
+                                                            <ul class="brands">
+                                                                <li><a href="#"><img src="{% static "assets/images/megamenu/brand-organic.png" %}" width="161" height="136" alt="organic"></a></li>
+                                                                <li><a href="#"><img src="{% static "assets/images/megamenu/brand-explore.png" %}" width="160" height="136" alt="explore"></a></li>
+                                                                <li><a href="#"><img src="{% static "assets/images/megamenu/brand-organic-2.png" %}" width="99" height="136" alt="organic 2"></a></li>
+                                                                <li><a href="#"><img src="{% static "assets/images/megamenu/brand-eco-teas.png" %}" width="164"  height="136" alt="eco teas"></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="menu-item menu-item-has-children has-megamenu">
+                                        <a href="#" class="menu-name" data-title="Vegetables"><i class="biolife-icon icon-broccoli-1"></i>Vegetables</a>
+                                        <div class="wrap-megamenu lg-width-900 md-width-640 background-mega-01">
+                                            <div class="mega-content">
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-4 col-sm-12 xs-margin-bottom-25 md-margin-bottom-0">
+                                                        <div class="wrap-custom-menu vertical-menu">
+                                                            <h4 class="menu-title">Vegetables</h4>
+                                                            <ul class="menu">
+                                                                <li><a href="#">Fruit & Nut Gifts</a></li>
+                                                                <li><a href="#">Mixed Fruits</a></li>
+                                                                <li><a href="#">Oranges</a></li>
+                                                                <li><a href="#">Bananas & Plantains</a></li>
+                                                                <li><a href="#">Fresh Gala Apples</a></li>
+                                                                <li><a href="#">Berries</a></li>
+                                                                <li><a href="#">Pears</a></li>
+                                                                <li><a href="#">Produce</a></li>
+                                                                <li><a href="#">Snack Foods</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-12 lg-padding-left-23 xs-margin-bottom-25 md-margin-bottom-0">
+                                                        <div class="wrap-custom-menu vertical-menu">
+                                                            <h4 class="menu-title">Gifts</h4>
+                                                            <ul class="menu">
+                                                                <li><a href="#">Non-Dairy Coffee Creamers</a></li>
+                                                                <li><a href="#">Coffee Creamers</a></li>
+                                                                <li><a href="#">Mayonnaise</a></li>
+                                                                <li><a href="#">Almond Milk</a></li>
+                                                                <li><a href="#">Ghee</a></li>
+                                                                <li><a href="#">Beverages</a></li>
+                                                                <li><a href="#">Ranch Salad Dressings</a></li>
+                                                                <li><a href="#">Hemp Milk</a></li>
+                                                                <li><a href="#">Nuts & Seeds</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-5 col-md-4 col-sm-12 lg-padding-left-57 md-margin-bottom-30">
+                                                        <div class="biolife-brand vertical md-boder-left-30">
+                                                            <h4 class="menu-title">Hot Brand</h4>
+                                                            <ul class="brands">
+                                                                <li><a href="#"><img src="{% static "assets/images/megamenu/v-brand-organic.png" %}" width="167" height="74" alt="organic"></a></li>
+                                                                <li><a href="#"><img src="{% static "assets/images/megamenu/v-brand-explore.png" %}" width="167" height="72" alt="explore"></a></li>
+                                                                <li><a href="#"><img src="{% static "assets/images/megamenu/v-brand-organic-2.png" %}" width="167" height="99" alt="organic 2"></a></li>
+                                                                <li><a href="#"><img src="{% static "assets/images/megamenu/v-brand-eco-teas.png" %}" width="167" height="67" alt="eco teas"></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="menu-item menu-item-has-children has-megamenu">
+                                        <a href="#" class="menu-name" data-title="Fresh Berries"><i class="biolife-icon icon-grape"></i>Fresh Berries</a>
+                                        <div class="wrap-megamenu lg-width-900 md-width-640 background-mega-02">
+                                            <div class="mega-content">
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-4 sm-col-12 md-margin-bottom-83 xs-margin-bottom-25">
+                                                        <div class="wrap-custom-menu vertical-menu">
+                                                            <h4 class="menu-title">Fresh Berries</h4>
+                                                            <ul class="menu">
+                                                                <li><a href="#">Fruit & Nut Gifts</a></li>
+                                                                <li><a href="#">Mixed Fruits</a></li>
+                                                                <li><a href="#">Oranges</a></li>
+                                                                <li><a href="#">Bananas & Plantains</a></li>
+                                                                <li><a href="#">Fresh Gala Apples</a></li>
+                                                                <li><a href="#">Berries</a></li>
+                                                                <li><a href="#">Pears</a></li>
+                                                                <li><a href="#">Produce</a></li>
+                                                                <li><a href="#">Snack Foods</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-4 sm-col-12 lg-padding-left-23 xs-margin-bottom-36px md-margin-bottom-0">
+                                                        <div class="wrap-custom-menu vertical-menu">
+                                                            <h4 class="menu-title">Gifts</h4>
+                                                            <ul class="menu">
+                                                                <li><a href="#">Non-Dairy Coffee Creamers</a></li>
+                                                                <li><a href="#">Coffee Creamers</a></li>
+                                                                <li><a href="#">Mayonnaise</a></li>
+                                                                <li><a href="#">Almond Milk</a></li>
+                                                                <li><a href="#">Ghee</a></li>
+                                                                <li><a href="#">Beverages</a></li>
+                                                                <li><a href="#">Ranch Salad Dressings</a></li>
+                                                                <li><a href="#">Hemp Milk</a></li>
+                                                                <li><a href="#">Nuts & Seeds</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-4 sm-col-12 lg-padding-left-25 md-padding-top-55">
+                                                        <div class="biolife-banner layout-01">
+                                                            <h3 class="top-title">Farm Fresh</h3>
+                                                            <p class="content"> All the Lorem Ipsum generators on the Internet tend.</p>
+                                                            <b class="bottomm-title">Berries Series</b>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="menu-item"><a href="#" class="menu-name" data-title="Ocean Foods"><i class="biolife-icon icon-fish"></i>Ocean Foods</a></li>
+                                    <li class="menu-item menu-item-has-children has-child">
+                                        <a href="#" class="menu-name" data-title="Butter & Eggs"><i class="biolife-icon icon-honey"></i>Butter & Eggs</a>
+                                        <ul class="sub-menu">
+                                            <li class="menu-item"><a href="#">Omelettes</a></li>
+                                            <li class="menu-item"><a href="#">Breakfast Scrambles</a></li>
+                                            <li class="menu-item menu-item-has-children has-child"><a href="#" class="menu-name" data-title="Eggs & other considerations">Eggs & other considerations</a>
+                                                <ul class="sub-menu">
+                                                    <li class="menu-item"><a href="#">Classic Breakfast</a></li>
+                                                    <li class="menu-item"><a href="#">Huevos Rancheros</a></li>
+                                                    <li class="menu-item"><a href="#">Everything Egg Sandwich</a></li>
+                                                    <li class="menu-item"><a href="#">Egg Sandwich</a></li>
+                                                    <li class="menu-item"><a href="#">Vegan Burrito</a></li>
+                                                    <li class="menu-item"><a href="#">Biscuits and Gravy</a></li>
+                                                    <li class="menu-item"><a href="#">Bacon Avo Egg Sandwich</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item"><a href="#">Griddle</a></li>
+                                            <li class="menu-item menu-item-has-children has-child"><a href="#" class="menu-name" data-title="Sides & Extras">Sides & Extras</a>
+                                                <ul class="sub-menu">
+                                                    <li class="menu-item"><a href="#">Breakfast Burrito</a></li>
+                                                    <li class="menu-item"><a href="#">Crab Cake Benedict</a></li>
+                                                    <li class="menu-item"><a href="#">Corned Beef Hash</a></li>
+                                                    <li class="menu-item"><a href="#">Steak & Eggs</a></li>
+                                                    <li class="menu-item"><a href="#">Oatmeal</a></li>
+                                                    <li class="menu-item"><a href="#">Fruit & Yogurt Parfait</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item"><a href="#">Biscuits</a></li>
+                                            <li class="menu-item"><a href="#">Seasonal Fruit Plate</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item"><a href="#" class="menu-title"><i class="biolife-icon icon-fast-food"></i>Fastfood</a></li>
+                                    <li class="menu-item"><a href="#" class="menu-title"><i class="biolife-icon icon-beef"></i>Fresh Meat</a></li>
+                                    <li class="menu-item"><a href="#" class="menu-title"><i class="biolife-icon icon-onions"></i>Fresh Onion</a></li>
+                                    <li class="menu-item"><a href="#" class="menu-title"><i class="biolife-icon icon-avocado"></i>Papaya & Crisps</a></li>
+                                    <li class="menu-item"><a href="#" class="menu-title"><i class="biolife-icon icon-contain"></i>Oatmeal</a></li>
+                                    <li class="menu-item"><a href="#" class="menu-title"><i class="biolife-icon icon-fresh-juice"></i>Fresh Bananas & Plantains</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 hidden-sm hidden-xs md-possition-initial">
+                        <div class="primary-menu">
+                            <ul class="menu biolife-menu clone-main-menu clone-primary-menu" id="primary-menu" data-menuname="main menu">
+                                <li class="menu-item"><a href="{% url 'home' %}">Home</a></li>
+                                <li class="menu-item"><a href="{% url 'store' %}">Store</a></li>
+                                
+                                <li class="menu-item menu-item-has-children has-megamenu">
+                                    <a href="#" class="menu-name" data-title="Blog">Blog</a>
+                                    <div class="wrap-megamenu lg-width-800 md-full-width">
+                                        <div class="mega-content">
+                                            <div class="col-lg-5 col-md-4 col-xs-6">
+                                                <div class="wrap-custom-menu vertical-menu">
+                                                    <h4 class="menu-title">Blog Categories</h4>
+                                                    <ul class="menu">
+                                                        <li><a href="#">Beauty (30)</a></li>
+                                                        <li><a href="#">Fashion (50)</a></li>
+                                                        <li><a href="#">Food (10)</a></li>
+                                                        <li><a href="#">Life Style (60)</a></li>
+                                                        <li><a href="#">Travel (10)</a></li>
+                                                        <li><a href="#">Nutrition (35)</a></li>
+                                                        <li><a href="#">Food Decoration (45)</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-xs-12 md-margin-top-0 xs-margin-top-25px">
+                                                <div class="block-posts">
+                                                    <h4 class="menu-title">Recent Posts</h4>
+                                                    <ul class="posts">
+                                                        <li>
+                                                            <div class="block-post-item">
+                                                                <div class="thumb"><a href="#"><img src="{% static "assets/images/megamenu/thumb-05.jpg" %}" width="100" height="73" alt=""></a></div>
+                                                                <div class="left-info">
+                                                                    <h4 class="post-name"><a href="#">Ashwagandha: The #1 Herb in the World for Anxiety?</a></h4>
+                                                                    <span class="p-date">Jan 05, 2019</span>
+                                                                    <span class="p-comment">2 Comments</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="block-post-item">
+                                                                <div class="thumb"><a href="#"><img src="{% static "assets/images/megamenu/thumb-06.jpg" %}" width="100" height="73" alt=""></a></div>
+                                                                <div class="left-info">
+                                                                    <h4 class="post-name"><a href="#">Ashwagandha: The #1 Herb in the World for Anxiety?</a></h4>
+                                                                    <span class="p-date">May 15, 2019</span>
+                                                                    <span class="p-comment">8 Comments</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="block-post-item">
+                                                                <div class="thumb"><a href="#"><img src="{% static "assets/images/megamenu/thumb-07.jpg" %}" width="100" height="73" alt=""></a></div>
+                                                                <div class="left-info">
+                                                                    <h4 class="post-name"><a href="#">Ashwagandha: The #1 Herb in the World for Anxiety?</a></h4>
+                                                                    <span class="p-date">Apr 26, 2019</span>
+                                                                    <span class="p-comment">10 Comments</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="menu-item"><a href="{% url 'contact' %}">Contact</a></li>
+                                <li class="menu-item"><a href="{% url 'about' %}">About</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-2 col-sm-12 col-xs-12">
+                        <div class="logo-for-mobile hidden-lg hidden-md">
+                            <a href="{% url 'home' %}" class="biolife-logo"><img src="{% static "assets/images/logo-biolife-1.png" %}" alt="biolife logo" width="135" height="36"></a>
+                        </div>
+                        <div class="biolife-cart-info center-align-mobile">
+                            <div class="mobile-search">
+                                <a href="javascript:void(0)" class="open-searchbox"><i class="biolife-icon icon-search"></i></a>
+                                <div class="mobile-search-content">
+                                    <form action="#" class="form-search" name="mobile-seacrh" method="get">
+                                        <a href="#" class="btn-close"><span class="biolife-icon icon-close-menu"></span></a>
+                                        <input type="text" name="s" class="input-text" value="" placeholder="Search here...">
+                                        <select name="category">
+                                            <option value="-1" selected>All Categories</option>
+                                            <option value="vegetables">Vegetables</option>
+                                            <option value="fresh_berries">Fresh Berries</option>
+                                            <option value="ocean_foods">Ocean Foods</option>
+                                            <option value="butter_eggs">Butter & Eggs</option>
+                                            <option value="fastfood">Fastfood</option>
+                                            <option value="fresh_meat">Fresh Meat</option>
+                                            <option value="fresh_onion">Fresh Onion</option>
+                                            <option value="papaya_crisps">Papaya & Crisps</option>
+                                            <option value="oatmeal">Oatmeal</option>
+                                        </select>
+                                        <button type="submit" class="btn-submit">go</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="minicart-block layout-02">
+                                <div class="minicart-contain">
+                                    <div class="icon-contain">
+                                        <div class="span-index">
+                                            <i class="icon-cart-mini biolife-icon" ></i>
+                                            <span class="qty" style="color:#e73918;">{{order.get_cart_items}}</span>
+                                            <span class="sub-total">{{order.get_cart_items}} items - £{{order.get_cart_total|floatformat:2}}</span>
+                                        </div>
+                                        <a href="#" class="btn-to-cart">Go</a>
+                                    </div>
+                                    <div class="cart-content">
+                                        <div class="cart-inner">
+                                            {% for item in items  %}
+                                            <ul class="products">
+                                                <li>
+                                                    <div class="minicart-item">
+                                                        <div class="thumb">
+                                                            <a href=""><img src="{{ item.product.imageURL }}" width="90" height="90" alt="National Fresh"></a>
+                                                        </div>
+                                                        <div class="left-info">
+                                                            <div class="product-title"><a href="" class="product-name">{{ item.product.name }}</a></div>
+                                                            <div class="price">
+                                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>{{item.product.price|floatformat:2}}</span></ins>
+                                                            </div>
+                                                            <div class="qty">
+                                                                <label for="cart[id123][qty]">Qty:</label>
+                                                                <input type="number" class="input-qty" name="cart[id123][qty]" id="cart[id123][qty]" value="{{item.quantity}}" disabled>
+                                                            </div>
+                                                        </div>
+                                                        <div class="action">
+                                                            <a href="#" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                            <a href="#" class="remove"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            {% endfor %}
+                                            <p class="btn-control">
+                                                <a href="{% url 'cart' %}" class="btn view-cart">view cart</a>
+                                                <a href="{% url 'checkout' %}" class="btn">checkout</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="mobile-menu-toggle">
+                                <a class="btn-toggle" data-object="open-mobile-menu" href="javascript:void(0)">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    {% block content %}
+        
+    {% endblock %}
+
+    
+    <!-- FOOTER -->
+    <footer id="footer" class="footer layout-01">
+        <div class="footer-content background-footer-03">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-xs-12">
+                        <section class="footer-item">
+                            <a href="{% url 'home' %}" class="logo footer-logo"><img src="{% static "assets/images/logo-biolife-1.png" %}" alt="biolife logo" width="135" height="34"></a>
+                            <div class="footer-phone-info mode-03">
+                                <i class="biolife-icon icon-head-phone"></i>
+                                <p class="r-info">
+                                    <span>Got Questions ?</span>
+                                    <span class="number">(700)  9001-1909  (900) 689 -66</span>
+                                </p>
+                            </div>
+                            <div class="contact-info-block footer-layout simple-info">
+                                <h4 class="title">Contact info</h4>
+                                <div class="info-item">
+                                    <img src="{% static "assets/images/location-icon.png" %}" width="22" height="26" alt="" class="icon">
+                                    <p class="desc">7563 St. Vicent Place, Glasgow, Greater Newyork NH7689, UK </p>
+                                </div>
+                            </div>
+                            <div class="biolife-social inline circle-hover">
+                                <ul class="socials">
+                                    <li><a href="#" title="twitter" class="socail-btn"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href="#" title="facebook" class="socail-btn"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#" title="pinterest" class="socail-btn"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#" title="youtube" class="socail-btn"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                                    <li><a href="#" title="instagram" class="socail-btn"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-xs-12 ">
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-4 col-xs-12 md-margin-top-6px xs-margin-top-40px">
+                                <section class="footer-item">
+                                    <h3 class="section-title">My Account</h3>
+                                    <div class="wrap-custom-menu vertical-menu-2">
+                                        <ul class="menu">
+                                            <li><a href="#">Sign In</a></li>
+                                            <li><a href="{% url 'cart' %}">View Cart</a></li>
+                                            <li><a href="#">My Wishlist</a></li>
+                                            <li><a href="#">Track My Order</a></li>
+                                            <li><a href="#">Help</a></li>
+                                            <li><a href="#">Our Blog</a></li>
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-xs-12 md-margin-top-6px xs-margin-top-40px">
+                                <section class="footer-item">
+                                    <h3 class="section-title">Why Buy From Us</h3>
+                                    <div class="wrap-custom-menu vertical-menu-2">
+                                        <ul class="menu">
+                                            <li><a href="#">Shipping & Returns</a></li>
+                                            <li><a href="#">Secure Shopping</a></li>
+                                            <li><a href="#">International Shipping</a></li>
+                                            <li><a href="#">Affiliates</a></li>
+                                            <li><a href="#">Group Sales</a></li>
+                                            <li><a href="#">Shipping & Returns</a></li>
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-xs-12 md-margin-top-6px xs-margin-top-40px">
+                                <section class="footer-item">
+                                    <h3 class="section-title">Information</h3>
+                                    <div class="wrap-custom-menu vertical-menu-2">
+                                        <ul class="menu">
+                                            <li><a href="#">Our Blog</a></li>
+                                            <li><a href="#">About Our Shop</a></li>
+                                            <li><a href="#">Secure Shopping</a></li>
+                                            <li><a href="#">Delivery infomation</a></li>
+                                            <li><a href="#">Privacy Policy</a></li>
+                                            <li><a href="#">Our Sitemap</a></li>
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="footer-midle-pst">
+                    <div class=" newsletter-block layout-04">
+                        <div class="wrap-title">
+                            <span class="biolife-icon icon-newsletter"></span>
+                            <div class="texts">
+                                <h3 class="newslt-title">Sign up for our newsletter</h3>
+                                <p class="sub-title">Sign up our Newsletter for Exclusive Discount codes</p>
+                            </div>
+                        </div>
+                        <div class="form-content">
+                            <form action="#" name="new-letter-foter" method="post">
+                                <input type="email" class="input-text email" value="" placeholder="Your email here...">
+                                <button type="submit" class="bnt-submit" name="ok">Sign up</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="copy-rights-contain">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="copy-right-text"><p><a href="templateshub.net">Templates Hub</a></p></div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="payment-methods">
+                                <ul>
+                                    <li><a href="#" class="payment-link"><img src="{% static "assets/images/card1.jpg" %}" width="51" height="36" alt=""></a></li>
+                                    <li><a href="#" class="payment-link"><img src="{% static "assets/images/card2.jpg" %}" width="51" height="36" alt=""></a></li>
+                                    <li><a href="#" class="payment-link"><img src="{% static "assets/images/card3.jpg" %}" width="51" height="36" alt=""></a></li>
+                                    <li><a href="#" class="payment-link"><img src="{% static "assets/images/card4.jpg" %}" width="51" height="36" alt=""></a></li>
+                                    <li><a href="#" class="payment-link"><img src="{% static "assets/images/card5.jpg" %}" width="51" height="36" alt=""></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!--Footer For Mobile-->
+    <div class="mobile-footer">
+        <div class="mobile-footer-inner">
+            <div class="mobile-block block-menu-main">
+                <a class="menu-bar menu-toggle btn-toggle" data-object="open-mobile-menu" href="javascript:void(0)">
+                    <span class="fa fa-bars"></span>
+                    <span class="text">Menu</span>
+                </a>
+            </div>
+            <div class="mobile-block block-sidebar">
+                <a class="menu-bar filter-toggle btn-toggle" data-object="open-mobile-filter" href="javascript:void(0)">
+                    <i class="fa fa-sliders" aria-hidden="true"></i>
+                    <span class="text">Sidebar</span>
+                </a>
+            </div>
+            <div class="mobile-block block-minicart">
+                <a class="link-to-cart" href="#">
+                    <span class="fa fa-shopping-bag" aria-hidden="true"></span>
+                    <span class="text">Cart</span>
+                </a>
+            </div>
+            <div class="mobile-block block-global">
+                <a class="menu-bar myaccount-toggle btn-toggle" data-object="global-panel-opened" href="javascript:void(0)">
+                    <span class="fa fa-globe"></span>
+                    <span class="text">Global</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!--Mobile Global Menu-->
+    <div class="mobile-block-global">
+        <div class="biolife-mobile-panels">
+            <span class="biolife-current-panel-title">Global</span>
+            <a class="biolife-close-btn" data-object="global-panel-opened" href="#">&times;</a>
+        </div>
+        <div class="block-global-contain">
+            <div class="glb-item my-account">
+                <b class="title">My Account</b>
+                <ul class="list">
+                    <li class="list-item"><a href="{% url 'register' %}">Sign Up</a></li>
+                    <li class="list-item"><a href="#">Wishlist <span class="index">(8)</span></a></li>
+                    <li class="list-item"><a href="{% url 'checkout' %}">Checkout</a></li>
+                </ul>
+            </div>
+            <div class="glb-item currency">
+                <b class="title">Currency</b>
+                <ul class="list">
+                    <li class="list-item"><a href="#">€ EUR (Euro)</a></li>
+                    <li class="list-item"><a href="#">$ USD (Dollar)</a></li>
+                    <li class="list-item"><a href="#">£ GBP (Pound)</a></li>
+                    <li class="list-item"><a href="#">¥ JPY (Yen)</a></li>
+                </ul>
+            </div>
+            <div class="glb-item languages">
+                <b class="title">Language</b>
+                <ul class="list inline">
+                    <li class="list-item"><a href="#"><img src="{% static "assets/images/languages/us.jpg" %}" alt="flag" width="24" height="18"></a></li>
+                    <li class="list-item"><a href="#"><img src="{% static "assets/images/languages/fr.jpg" %}" alt="flag" width="24" height="18"></a></li>
+                    <li class="list-item"><a href="#"><img src="{% static "assets/images/languages/ger.jpg" %}" alt="flag" width="24" height="18"></a></li>
+                    <li class="list-item"><a href="#"><img src="{% static "assets/images/languages/jap.jpg" %}" alt="flag" width="24" height="18"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!--Newletter Popup-->
+    {% comment %} <div id="biolife-newsletter-popup" class="modal fade biolife-popup biolife-newsletter-popup-contain" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal"><span class="biolife-icon icon-close-menu"></span></button>
+                    <div class="newsletter-block popup-layout newsletter-block_popup-layout">
+                        <div class="inner-content">
+                            <div class="wrap-title">
+                                <span class="sup-title">Sign up to get up to</span>
+                                <h3 class="newslt-title">50<sup>%</sup> off</h3>
+                            </div>
+                            <div class="form-content">
+                                <form action="#" name="new-letter-foter" method="post">
+                                    <input type="email" class="input-text email" value="" placeholder="Your email here...">
+                                    <button type="submit" class="bnt-submit" name="ok">Get up to 50% off</button>
+                                    <a href="javascript:void(0)" class="close dismiss-newsletter" data-dismiss="modal">No thank. I’ll let this deal fly away</a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> {% endcomment %}
+
+    <!--Quickview Popup-->
+    <div id="biolife-quickview-block" class="biolife-quickview-block">
+        <div class="quickview-container">
+            <a href="#" class="btn-close-quickview" data-object="open-quickview-block"><span class="biolife-icon icon-close-menu"></span></a>
+            <div class="biolife-quickview-inner">
+                <div class="media">
+                    <ul class="biolife-carousel quickview-for" data-slick='{"arrows":false,"dots":false,"slidesMargin":30,"slidesToShow":1,"slidesToScroll":1,"fade":true,"asNavFor":".quickview-nav"}'>
+                        <li><img src="{% static "assets/images/details-product/detail_01.jpg" %}" alt="" width="500" height="500"></li>
+                        <li><img src="{% static "assets/images/details-product/detail_02.jpg" %}" alt="" width="500" height="500"></li>
+                        <li><img src="{% static "assets/images/details-product/detail_03.jpg" %}" alt="" width="500" height="500"></li>
+                        <li><img src="{% static "assets/images/details-product/detail_04.jpg" %}" alt="" width="500" height="500"></li>
+                        <li><img src="{% static "assets/images/details-product/detail_05.jpg" %}" alt="" width="500" height="500"></li>
+                        <li><img src="{% static "assets/images/details-product/detail_06.jpg" %}" alt="" width="500" height="500"></li>
+                        <li><img src="{% static "assets/images/details-product/detail_07.jpg" %}" alt="" width="500" height="500"></li>
+                    </ul>
+                    <ul class="biolife-carousel quickview-nav" data-slick='{"arrows":true,"dots":false,"centerMode":false,"focusOnSelect":true,"slidesMargin":10,"slidesToShow":3,"slidesToScroll":1,"asNavFor":".quickview-for"}'>
+                        <li><img src="{% static "assets/images/details-product/thumb_01.jpg" %}" alt="" width="88" height="88"></li>
+                        <li><img src="{% static "assets/images/details-product/thumb_02.jpg" %}" alt="" width="88" height="88"></li>
+                        <li><img src="{% static "assets/images/details-product/thumb_03.jpg" %}" alt="" width="88" height="88"></li>
+                        <li><img src="{% static "assets/images/details-product/thumb_04.jpg" %}" alt="" width="88" height="88"></li>
+                        <li><img src="{% static "assets/images/details-product/thumb_05.jpg" %}" alt="" width="88" height="88"></li>
+                        <li><img src="{% static "assets/images/details-product/thumb_06.jpg" %}" alt="" width="88" height="88"></li>
+                        <li><img src="{% static "assets/images/details-product/thumb_07.jpg" %}" alt="" width="88" height="88"></li>
+                    </ul>
+                </div>
+                <div class="product-attribute">
+                    <h4 class="title"><a href="#" class="pr-name">National Fresh Fruit</a></h4>
+                    <div class="rating">
+                        <p class="star-rating"><span class="width-80percent"></span></p>
+                    </div>
+
+                    <div class="price price-contain">
+                        <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
+                        <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
+                    </div>
+                    <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel maximus lacus. Duis ut mauris eget justo dictum tempus sed vel tellus.</p>
+                    <div class="from-cart">
+                        <div class="qty-input">
+                            <input type="text" name="qty12554" value="1" data-max_value="20" data-min_value="1" data-step="1">
+                            <a href="#" class="qty-btn btn-up"><i class="fa fa-caret-up" aria-hidden="true"></i></a>
+                            <a href="#" class="qty-btn btn-down"><i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="buttons">
+                            <a href="#" class="btn add-to-cart-btn btn-bold">add to cart</a>
+                        </div>
+                    </div>
+
+                    <div class="product-meta">
+                        <div class="product-atts">
+                            <div class="product-atts-item">
+                                <b class="meta-title">Categories:</b>
+                                <ul class="meta-list">
+                                    <li><a href="#" class="meta-link">Milk & Cream</a></li>
+                                    <li><a href="#" class="meta-link">Fresh Meat</a></li>
+                                    <li><a href="#" class="meta-link">Fresh Fruit</a></li>
+                                </ul>
+                            </div>
+                            <div class="product-atts-item">
+                                <b class="meta-title">Tags:</b>
+                                <ul class="meta-list">
+                                    <li><a href="#" class="meta-link">food theme</a></li>
+                                    <li><a href="#" class="meta-link">organic food</a></li>
+                                    <li><a href="#" class="meta-link">organic theme</a></li>
+                                </ul>
+                            </div>
+                            <div class="product-atts-item">
+                                <b class="meta-title">Brand:</b>
+                                <ul class="meta-list">
+                                    <li><a href="#" class="meta-link">Fresh Fruit</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <span class="sku">SKU: N/A</span>
+                        <div class="biolife-social inline add-title">
+                            <span class="fr-title">Share:</span>
+                            <ul class="socials">
+                                <li><a href="#" title="twitter" class="socail-btn"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#" title="facebook" class="socail-btn"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#" title="pinterest" class="socail-btn"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                <li><a href="#" title="youtube" class="socail-btn"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                                <li><a href="#" title="instagram" class="socail-btn"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Top Button -->
+    <a class="btn-scroll-top"><i class="biolife-icon icon-left-arrow"></i></a>
+
+
+    <script src= "{% static "assets/js/jquery-3.4.1.min.js" %}"></script>
+    <script src= "{% static "assets/js/bootstrap.min.js" %}"></script>
+    <script src= "{% static "assets/js/jquery.countdown.min.js" %}"></script>
+    <script src= "{% static "assets/js/jquery.nice-select.min.js" %}"></script>
+    <script src= "{% static "assets/js/jquery.nicescroll.min.js" %}"></script>
+    <script src= "{% static "assets/js/slick.min.js" %}"></script>
+    <script src= "{% static "assets/js/biolife.framework.js" %}"></script>
+    <script src= "{% static "assets/js/functions.js" %}"></script>
+    <script src= "{% static "assets/js/cart.js" %}"></script>
+</body>
+
+</html>
