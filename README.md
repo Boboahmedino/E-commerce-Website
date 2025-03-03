@@ -47,8 +47,8 @@ Before proceeding, ensure you have the following installed:
 
 1️⃣ **Clone the repository**  
 ```bash
-git clone https://github.com/YourUsername/ecommerce-website.git
-cd ecommerce-website
+git clone https://github.com/boboahmedino/E-commerce-Website.git
+cd E-commerce-Website
 ```
 
 2️⃣ **Create a virtual environment & activate it**  
